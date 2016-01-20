@@ -99,6 +99,18 @@ public class Picture extends SimplePicture
     }
   }
   
+  public void zeroRed()
+  {
+	  Pixel[][] redPixels = this.getPixels2D();
+	  for(int row = 0; row < redPixels.length; row++)
+	  {
+		  for(int col = 0; col < redPixels[0].length; col++)
+		  {
+			  redPixels[row][col].setRed(0);
+		  }
+	  }
+  }
+  
   /** Method that mirrors the picture around a 
     * vertical mirror in the center of the picture
     * from left to right */
@@ -225,9 +237,14 @@ public class Picture extends SimplePicture
   public static void main(String[] args) 
   {
     Picture beach = new Picture("beach.jpg");
-    beach.explore();
+    Picture blueMotorcycle = new Picture("blueMotorcycle.jpg");
+    Picture temple = new Picture("temple.jpg");
     beach.zeroBlue();
     beach.explore();
+    blueMotorcycle.createCollage();
+    blueMotorcycle.zeroRed();
+    blueMotorcycle.zeroBlue();
+    blueMotorcycle.explore();
   }
   
 } // this } is the end of class Picture, put all new methods before this
